@@ -49,12 +49,8 @@ const usuariosPost = async(req, res = response) => {
 }
 const usuariosDelete = async(req, res = response) => {
     const id = req.params.id;
-
     //Para cambiar el estado del usuario y "eliminarlo"
     const usuario = await Usuario.findByIdAndUpdate(id,{estado: false})
-
-    //Para borrar fisicamente
-    //const usuario = await Usuario.findByIdAndDelete(id);
     res.json({
         ok: true,
         usuario
